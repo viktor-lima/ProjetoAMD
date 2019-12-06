@@ -1,0 +1,174 @@
+body {
+    background-color: rgb(48, 45, 223);
+}
+
+#header {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: black;
+    border-radius: 10px;
+	border-color: white;
+	border-width: 5px;
+    border-style: solid;
+    width: 1365px;
+	background: white;
+    padding: 10px 20px;
+    animation: header 2s forwards;
+}
+
+.buttons {
+    animation: p1 2s forwards;
+    margin-top: -70px;
+}
+
+.input {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+   animation: inputs 2s forwards;
+}
+.window1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+	flex-direction: row;
+	width: 700px;
+    min-height: 250px;
+    height: auto;
+	margin-top: 5px;
+	border-radius: 10px;
+	border-color: white;
+	border-width: 5px;
+    border-style: solid;
+    background: white;
+    animation: blocos 2s forwards; 
+}
+
+.window2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+	flex-direction: row;
+	width: 700px;
+    min-height: 150px;
+    height: auto;
+	margin-top: 5px;
+	border-radius: 10px;
+	border-color: white;
+	border-width: 5px;
+    border-style: solid;
+    background:white;
+    margin-left: 350px;
+    animation: stats 2s forwards; 
+}
+
+.subwindow {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 35px; 
+    min-width: 70px;
+    width: auto;
+    max-height: 70px;
+    height: auto;
+    margin-top: 20px; 
+    border-radius: 10px;
+    border-color: green;
+    border-width: 5px;
+    border-style: solid;
+    background: white;
+}
+
+
+.subwindow2 {
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin-left: 35px; 
+min-width: 70px;
+width: auto;
+max-height: 70px;
+height: auto;
+margin-top: 120px; 
+margin-left: -80px;
+border-radius: 10px;
+border-color: red;
+border-width: 5px;
+border-style: solid;
+background: white;
+}
+
+p1 {
+    /* margin-left: 350px; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    animation: p1 2s forwards;
+}
+
+h4{
+	display: flex;
+	background: white;
+	height: 3vw;
+	width: 100px;
+	margin: 0;
+	padding-left: 5px;
+	align-items: center;
+	
+
+}
+.info{
+	margin:0;
+	justify-content: right;
+}
+#stats{
+    font-size: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: fit-content;
+    margin-top: -464px;
+}
+
+.divinfo{
+	display: flex;
+	flex-direction: row;
+	margin-top: 5px;
+	border-radius: 10px;
+	border-color: white;
+	border-width: 5px;
+    border-style: solid;
+    margin-left: 50px;
+    animation: stats 2s forwards;
+}
+
+@keyframes stats {
+    0% {margin-top: 1000px;}
+    100% {margin-top: 5px;}
+}
+
+@keyframes inputs {
+    0% {margin-left: -500px;}
+    100% {margin-left: 52px;}
+}
+
+@keyframes blocos {
+    0% {margin-left: 1200px;}
+    100% {margin-left: 350px;}
+}
+
+@keyframes p1 {
+    0% {margin-left: 1200px;}
+    100% {margin-left: 350px;}
+}
+
+@keyframes header {
+    0% {margin-top: -200px;}
+    100% {margin-top: 20px;}
+}
+
+@keyframes cor {
+    0% {background-color: yellowgreen;}
+    20% {background-color: black;}
+    40% {background-color: red;}
+    60% {background-color: orange;}
+    80% {background-color: magenta;}
+    100% {background-color: yellowgreen;}
+}
+
+p2 {
+    color: rgb(47, 45, 223);
+}
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>	
+    <meta charset = "utf-8" />
+    <link rel="icon" href="logo.jpeg" type="image">
+	<link rel="stylesheet" type="text/css" href="Style.css"/>
+    <title>Projeto AMD</title>
+</head>
+
+<body>
+    <script language ="javascript" src="Back.js"> </script>
+
+    <div id="header">
+		<header>
+			<h1>Análise e Monitoramento de Desempenho <br> <br>
+			    Fila de pacotes de arquivos e mídia</h1>
+		</header>
+    </div>
+      <br> <br>
+       <div class="input">
+           <form id="formulario">
+       <p> Velocidade: <input type="number" value="2" id="velocidade" placeholder="Insira a velocidade" required> </p>  
+       <p> Intervalo:  <p3 style="color: rgb(48, 45, 223);">..|</p3><input type="number" value="2" id="intervalo" placeholder="Insira o intervalo" required></p> 
+      <!-- <p> Enviar <p3 style="color: rgb(48, 45, 223);">.......|</p3><input type="submit" value="Enviar" onclick="execucao()"></p>      -->
+    
+    </div>  
+
+        <div class="buttons">
+        <button type="submit" id="iniciar" onclick="execucao()">Iniciar Sistema</button> <br> <br>
+        <button id="parar" onclick="paraSistema()">Parar Sistema</button>
+    </form>
+                <br> <br>
+           </div>
+
+    <section> 
+        <br>
+        <p1>Fila:</p1>
+        <div id = "showFila" class="window1"> </div></div> <br>
+        <p1>Pacotes processados: </p1>
+		<div id = "showAtendidos" class="window2"></div>
+    </section>
+    
+    
+    <div id = "stats">
+            <section id = "quadroinfo">
+                <div id = "tempoFilaDiv" ></div>
+                <div id = "tempoAtendimentoDiv"></div> 
+                <div id = "clienteAtendido">
+                     <div class="divinfo"><h4>Pacote atual:</h4><h4 class = "info" id="pacoteAtual"></h4> </div>  <br>
+                     <div class="divinfo"><h4>Tempo médio de fila:</h4><h4 class = "info" id ="tempoFila"></h4></div>  <br>
+                     <div class="divinfo"><h4>Tempo médio de sistema</h4><h4 class = "info" id="tempoSistema"></h4></div>  <br>
+                     <div class="divinfo"><h4>Tempo médio de atendimento:</h4><h4 class = "info" id = "tempoAtendimento"> </h4> </div> <br> 
+                     <div class="divinfo"><h4>Média de pacotes no sistema:</h4><h4 class = "info" id = "mediaPacotesSistema"> </h4> </div> <br> 
+                     <div class="divinfo"><h4>Média de pacotes na fila:</h4><h4 class = "info" id = "mediaPacotesFila"> </h4> </div> <br>  
+                </div>
+            </div>  <br> <br> 
+            
+            <p2>...</p2>
+
+</body>
