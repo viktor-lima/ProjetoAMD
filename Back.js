@@ -1,26 +1,3 @@
-// terminar as métricas :
-// tempo médio de atendimento = 1 / mi
-// média de clientes no sistema = lambda / (mi - lambda)
-// média de clientes na fila = mi² /  mi * (mi - lambda)
-
-// talvez consertar as outras métricas:
-//Tempo médio de permanencia no sistema = 1 / (mi - lambda)
-// tempo médio de permanencia na fila = lambda / mi * (mi - lambda)
-
-// lambda = quantidade de pacotes / tempo
-// mi = 1 / quantidade atendida
-
-// média aritmética
-// tempo médio de atendimento = soma dos tempos de download / tempo
-// media de clientes no sistema = contador de clientes / tempo
-// media de clientes na fila = contador de clientes na fila (fila.length?) / tempo
-// fila.length? pq pode ser que isso continue contando mesmo que saia da fila
-// esse tempo é variável também
-// pq 1 minuto, 2 minutos, ou 60 seg, ou 120 seg
-// a cada minuto o tempo tem que acrescentar
-// pode ser feito do jeito que os meninos fizeram
-// cria uma variável tempoInicial e uma tempoAtual que vai ser um new date a cada minuto
-
 class Tipo {
     constructor() {
         this.tamanho = 0
@@ -73,19 +50,15 @@ class Pacote {
         this.t0 = 0;
         this.t1 = 0;
 
-        // saber se vai ser atendido de primeira
-        this.senha = 0;
-
     }
 
     static addPacote() {
 
-        let quantidadePct = Math.floor(Math.random() * 3) + 1
+        // let quantidadePct = Math.floor(Math.random() * 3) + 1
+        let quantidadePct = 6
         for (let i = 0; i < quantidadePct; i++) {
             let p = new Pacote()
             let chance = Math.floor(Math.random() * 3)
-
-            //p.senha = chance
 
             if (chance == 0) {
                 p.senha = 0
@@ -102,10 +75,7 @@ class Pacote {
                 p.tamanhoInicial = Math.floor((Math.random() * 5) + 1);
                 p.tamanho = p.tamanhoInicial
             }
-            // if (fila.length >= 5) {
-            //     setTimeout('this.addPacote()', 1000)
-            //     alert('fodeu')
-            // }
+        
             p.tempoInicialFila = new Date()
             p.t0 = p.tempoInicialFila.getTime()
             if (p.prioridade) {
@@ -119,7 +89,6 @@ class Pacote {
                     fila.splice(indice, 0, p)
                 }
             } else {
-                //p.tempoInicialFila = new Date();
                 fila.push(p)
             }
             contPacotes++
@@ -153,7 +122,6 @@ function download() {
                 fila[0].t1 = fila[0].tempoFinalFila.getTime()
                 fila[0].tempoSistema = fila[0].t1 - fila[0].t0
                 atendidos.push(fila.shift())
-                // console.log(atendidos)
             }
 
         } else {
@@ -176,40 +144,8 @@ function download() {
         fila[0].t1 = fila[0].tempoFinalFila.getTime()
         fila[0].tempoSistema = fila[0].t1 - fila[0].t0
         atendidos.push(fila.shift())
-        // console.log(atendidos)
     }
 }
-
-// function calculaMediaTempoSistema() {
-//     for (var i = 0; i < atendidos.length; i++) {
-//         somaSistema += atendidos[i].tempoSistema
-//     }
-
-//     mediaSistema = ((somaSistema / atendidos.length) / 1000).toFixed(2)
-
-//     var teste = document.getElementById('tempoSistema');
-//     teste.innerHTML = mediaSistema
-// }
-
-// function calculaMediaTempoFila() {
-
-//     var tempo = new Date()
-//     tempo = tempo.getTime()
-
-//     for (var i = 0; i < fila.length; i++) {
-//         fila[i].tempoSistema = (tempo - fila[i].t0) - fila[i].tempoDownload
-//         somaFila += fila[i].tempoFila
-//     }
-//     for (var i = 0; i < atendidos.length; i++) {
-//         somaFila += atendidos[i].tempoSistema - atendidos[i].tempoDownload
-//     }
-//     tamanho = fila.length + atendidos.length
-
-//     mediaFila = ((somaFila / tamanho) / 1000).toFixed(2)
-
-//     var teste = document.getElementById('tempoFila');
-//     teste.innerHTML = mediaFila
-// }
 
 function exibeFila() {
     var teste;
@@ -268,30 +204,46 @@ function metricas() {
     mi = atendidos.length / minuto
 
     var tempoMedioAtendimento = 1 / mi
+    if (tempoMedioAtendimento < 0) {
+        tempoMedioAtendimento *= -1
+    }
 
     var stats = document.getElementById('tempoAtendimento'); // tempo medio de atendimento
     stats.innerHTML = tempoMedioAtendimento.toFixed(2)
 
     var tempoMedioSistema = 1 / (mi - lambda)
+    if (tempoMedioSistema < 0) {
+        tempoMedioSistema *= -1
+    }
 
     var stats2 = document.getElementById('tempoSistema');  //tempo medio de sistema
     stats2.innerHTML = tempoMedioSistema.toFixed(2)
 
     var tempoMedioFila = lambda / (mi * (mi - lambda))
+    if (tempoMedioFila < 0) {
+        tempoMedioFila *= -1
+    }
 
     var stats3 = document.getElementById('tempoFila'); // tempo medio de fila
     stats3.innerHTML = tempoMedioFila.toFixed(2)
 
     var mediaPacotesSistema = lambda / (mi - lambda)
+    if (mediaPacotesSistema < 0) {
+        mediaPacotesSistema *= -1
+    }
 
     var stats4 = document.getElementById('mediaPacotesSistema'); //media de pacotes no sistema
     stats4.innerHTML = mediaPacotesSistema.toFixed(2)
 
     var mediaPacotesFila = (mi * mi) / (mi * (mi - lambda))
+    if (mediaPacotesFila < 0) {
+        mediaPacotesFila *= -1
+    }
 
     var stats5 = document.getElementById('mediaPacotesFila'); //media de pacotes na fila
     stats5.innerHTML = mediaPacotesFila.toFixed(2)
 
+    // resultados individuais para teste das métricas
     console.log(_horaInicial)
     console.log(_horaAtual)
     console.log(minuto)
@@ -311,13 +263,12 @@ function execucao(p) {
     var intervalo = document.getElementById('intervalo').value * 1000
 
     form.addEventListener('submit', function (e) {
-        // impede o envio do form
         e.preventDefault();
     });
     
     paraAddPacote = setInterval(() => {
         Pacote.addPacote()
-    }, intervalo)
+    }, 6000)
     
     exibeFila()
     
@@ -335,10 +286,6 @@ function execucao(p) {
         metricas()
     }, 60000)
 
-    // paraTempoSistema = setInterval(() => {
-    //     calculaMediaTempoSistema()
-    // }, 5000)
-
     setInterval(() => {
         download()
     }, intervalo)
@@ -354,7 +301,3 @@ function paraSistema() {
     clearInterval(paraTempoSistema);
 
 }
-
-// console.log(atendidos.length);
-
-
